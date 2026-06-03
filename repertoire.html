@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Repertoire — LAUS DEO '26</title>
+<link rel="icon" href="NuasChoirLogo.png">
+<link rel="stylesheet" href="lausdeo.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body class="page-body">
+
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="NuasChoirLogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
+    <div class="nav-brand-text">
+      <div class="nav-brand-name">NUAS CHOIR · KNUST</div>
+      <div class="nav-brand-sub">15th Anniversary Celebration</div>
+    </div>
+  </a>
+  <button id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="repertoire.html">Repertoire</a></li>
+    <li><a href="history.html">History</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-pill"><span></span>MUSICAL REPERTOIRE<span></span></div>
+    <h1 class="page-hero-title">Featured<br>Performances</h1>
+    <p class="page-hero-sub">A carefully curated selection spanning sacred masterworks, classical gems, and contemporary favorites</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--offwhite)">
+  <div class="section-inner">
+    <div class="songs-filter reveal">
+      <button class="filter-btn active" onclick="filterSongs('all',this)">ALL</button>
+      <button class="filter-btn" onclick="filterSongs('classical',this)">CLASSICAL</button>
+      <button class="filter-btn" onclick="filterSongs('contemporary',this)">CONTEMPORARY</button>
+      <button class="filter-btn" onclick="filterSongs('sacred',this)">SACRED</button>
+      <button class="filter-btn" onclick="filterSongs('musical-theater',this)">MUSICAL THEATER</button>
+    </div>
+
+    <div class="songs-grid" id="songsGrid">
+
+      <div class="song-card classical">
+        <div class="song-icon c">♩</div>
+        <div class="song-title">O Fortuna</div>
+        <div class="song-composer">Carl Orff — Carmina Burana</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">D minor</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">2:45</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-c">CLASSICAL</span>
+          <span class="stag stag-e">Full Choir</span>
+        </div>
+      </div>
+
+      <div class="song-card contemporary">
+        <div class="song-icon g">♪</div>
+        <div class="song-title">The Blessing</div>
+        <div class="song-composer">Kari Jobe &amp; Cody Carnes</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">C major</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">4:20</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-g">CONTEMPORARY</span>
+          <span class="stag stag-e">Senior Ensemble</span>
+        </div>
+      </div>
+
+      <div class="song-card sacred">
+        <div class="song-icon c">♩</div>
+        <div class="song-title">Panis Angelicus</div>
+        <div class="song-composer">César Franck</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">D major</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">3:40</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-c">SACRED</span>
+          <span class="stag stag-e">Senior Ensemble</span>
+        </div>
+      </div>
+
+      <div class="song-card musical-theater">
+        <div class="song-icon g">♪</div>
+        <div class="song-title">Seasons of Love</div>
+        <div class="song-composer">Jonathan Larson — RENT</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">B♭ major</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">5:15</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-g">MUSICAL THEATER</span>
+          <span class="stag stag-e">Full Choir &amp; Alumni</span>
+        </div>
+      </div>
+
+      <div class="song-card classical">
+        <div class="song-icon c">♩</div>
+        <div class="song-title">Hallelujah Chorus</div>
+        <div class="song-composer">G.F. Handel — Messiah</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">D major</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">4:00</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-c">CLASSICAL</span>
+          <span class="stag stag-e">Full Choir</span>
+        </div>
+      </div>
+
+      <div class="song-card contemporary">
+        <div class="song-icon g">♪</div>
+        <div class="song-title">Way Maker</div>
+        <div class="song-composer">Sinach</div>
+        <div class="song-meta">
+          <div class="smrow"><span class="lbl">Key</span><span class="val">G major</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">6:00</span></div>
+        </div>
+        <div class="song-tags">
+          <span class="stag stag-g">CONTEMPORARY</span>
+          <span class="stag stag-e">Full Choir</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-ld">LAUS DEO</div>
+      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2011</div>
+      <p class="footer-blurb">Celebrating fifteen years of musical excellence, spiritual devotion, community, and harmony.</p>
+      <p class="footer-love">♥ Made with love and dedication</p>
+    </div>
+    <div>
+      <div class="footer-col-title">GET IN TOUCH</div>
+      <div class="footer-ci"><div class="fci-icon">✉️</div><div><div class="fci-lbl">EMAIL</div><div class="fci-val">choir@nuas.edu.gh</div></div></div>
+      <div class="footer-ci"><div class="fci-icon">📍</div><div><div class="fci-lbl">LOCATION</div><div class="fci-val">Abp. Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div></div></div>
+    </div>
+    <div>
+      <div class="footer-col-title">CONCERT INFORMATION</div>
+      <div class="info-box">
+        <div class="ir"><span class="k">Date</span><span class="v">Saturday, 27th June 2026</span></div>
+        <div class="ir"><span class="k">Time</span><span class="v">6:00 PM – 8:00 PM</span></div>
+        <div class="ir"><span class="k">Venue</span><span class="v">ATCAC – KNUST, Kumasi</span></div>
+        <div class="ir"><span class="k">Admission</span><span class="v">Free Entry</span></div>
+        <a href="index.html" class="admission-btn">✦ FREE ADMISSION · ALL WELCOME</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 NUAS Choir KNUST · LAUS DEO '26 · 15th Anniversary Celebration</p>
+    <p class="footer-latin">LAUS DEO — PRAISE BE TO GOD</p>
+  </div>
+</footer>
+
+<script>
+const navToggle=document.getElementById('nav-toggle'),navMenu=document.getElementById('nav-menu'),navEl=document.getElementById('nav');
+navToggle.addEventListener('click',()=>{const o=navEl.classList.toggle('open');navToggle.setAttribute('aria-expanded',o);});
+navMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{navEl.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}));
+const page=location.pathname.split('/').pop()||'index.html';
+navMenu.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active');});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+function filterSongs(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.song-card').forEach(card=>{
+    card.style.display=(cat==='all'||card.classList.contains(cat))?'block':'none';
+  });
+}
+</script>
+</body>
+</html>

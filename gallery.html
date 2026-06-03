@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Gallery — LAUS DEO '26</title>
+<link rel="icon" href="NuasChoirLogo.png">
+<link rel="stylesheet" href="lausdeo.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+</head>
+<body class="page-body">
+
+<nav id="nav">
+  <a href="index.html" class="nav-brand">
+    <img src="NuasChoirLogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
+    <div class="nav-brand-text">
+      <div class="nav-brand-name">NUAS CHOIR · KNUST</div>
+      <div class="nav-brand-sub">15th Anniversary Celebration</div>
+    </div>
+  </a>
+  <button id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="repertoire.html">Repertoire</a></li>
+    <li><a href="history.html">History</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-hero-pill"><span></span>MEMORIES<span></span></div>
+    <h1 class="page-hero-title">Moments That<br>Define Us</h1>
+    <p class="page-hero-sub">Cherished moments from fifteen years of music, fellowship, and unforgettable performances at KNUST</p>
+  </div>
+</div>
+
+<section class="section" style="background:var(--offwhite)">
+  <div class="section-inner">
+
+    <!-- Upload prompt -->
+    <div style="background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.4);border-radius:16px;padding:20px 28px;margin-bottom:48px;display:flex;align-items:center;gap:16px" class="reveal">
+      <div style="font-size:28px;flex-shrink:0">📸</div>
+      <div>
+        <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.15em;color:var(--gold2);margin-bottom:4px">PHOTO GALLERY</div>
+        <div style="font-size:14px;color:var(--text2)">Replace the placeholder tiles below with your choir's real photos. Each <code>.gal-ph</code> div can be swapped for an <code>&lt;img&gt;</code> tag.</div>
+      </div>
+    </div>
+
+    <div class="gallery-masonry" id="galleryMasonry">
+      <div class="gal-item reveal">
+        <div class="gal-ph" style="height:300px;background:linear-gradient(135deg,#3D0718,#6B1229)">🎶</div>
+        <div class="gal-overlay"><div class="gal-cap">Inaugural Concert · 2013</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-1">
+        <div class="gal-ph" style="height:220px;background:linear-gradient(135deg,#A8872E,#7A1030)">🎵</div>
+        <div class="gal-overlay"><div class="gal-cap">National Competition · 2016</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-2">
+        <div class="gal-ph" style="height:260px;background:linear-gradient(135deg,#5C0B24,#C9A84C)">🎤</div>
+        <div class="gal-overlay"><div class="gal-cap">Full Choir Rehearsal</div></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="gal-ph" style="height:240px;background:linear-gradient(135deg,#7A1030,#3D0718)">🎼</div>
+        <div class="gal-overlay"><div class="gal-cap">10th Anniversary · 2019</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-1">
+        <div class="gal-ph" style="height:300px;background:linear-gradient(135deg,#E8CC7A,#A8872E)">✦</div>
+        <div class="gal-overlay"><div class="gal-cap">Alumni Reunion · 2022</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-2">
+        <div class="gal-ph" style="height:200px;background:linear-gradient(135deg,#2A0410,#A8872E)">🎹</div>
+        <div class="gal-overlay"><div class="gal-cap">ATCAC Performance</div></div>
+      </div>
+      <div class="gal-item reveal">
+        <div class="gal-ph" style="height:260px;background:linear-gradient(135deg,#25004D,#D4AF37)">🎭</div>
+        <div class="gal-overlay"><div class="gal-cap">Special Performance · 2020</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-1">
+        <div class="gal-ph" style="height:220px;background:linear-gradient(135deg,#6B1229,#E6C55A)">🎺</div>
+        <div class="gal-overlay"><div class="gal-cap">Choir Leadership · 2023</div></div>
+      </div>
+      <div class="gal-item reveal reveal-delay-2">
+        <div class="gal-ph" style="height:280px;background:linear-gradient(135deg,#A8872E,#5A00B5)">🎗️</div>
+        <div class="gal-overlay"><div class="gal-cap">Award Ceremony</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-ld">LAUS DEO</div>
+      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2011</div>
+      <p class="footer-blurb">Celebrating fifteen years of musical excellence, spiritual devotion, community, and harmony.</p>
+      <p class="footer-love">♥ Made with love and dedication</p>
+    </div>
+    <div>
+      <div class="footer-col-title">GET IN TOUCH</div>
+      <div class="footer-ci"><div class="fci-icon">✉️</div><div><div class="fci-lbl">EMAIL</div><div class="fci-val">choir@nuas.edu.gh</div></div></div>
+      <div class="footer-ci"><div class="fci-icon">📍</div><div><div class="fci-lbl">LOCATION</div><div class="fci-val">Abp. Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div></div></div>
+    </div>
+    <div>
+      <div class="footer-col-title">CONCERT INFORMATION</div>
+      <div class="info-box">
+        <div class="ir"><span class="k">Date</span><span class="v">Saturday, 27th June 2026</span></div>
+        <div class="ir"><span class="k">Time</span><span class="v">6:00 PM – 8:00 PM</span></div>
+        <div class="ir"><span class="k">Venue</span><span class="v">ATCAC – KNUST, Kumasi</span></div>
+        <div class="ir"><span class="k">Admission</span><span class="v">Free Entry</span></div>
+        <a href="index.html" class="admission-btn">✦ FREE ADMISSION · ALL WELCOME</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 NUAS Choir KNUST · LAUS DEO '26 · 15th Anniversary Celebration</p>
+    <p class="footer-latin">LAUS DEO — PRAISE BE TO GOD</p>
+  </div>
+</footer>
+
+<script>
+const navToggle=document.getElementById('nav-toggle'),navMenu=document.getElementById('nav-menu'),navEl=document.getElementById('nav');
+navToggle.addEventListener('click',()=>{const o=navEl.classList.toggle('open');navToggle.setAttribute('aria-expanded',o);});
+navMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{navEl.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}));
+const page=location.pathname.split('/').pop()||'index.html';
+navMenu.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active');});
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

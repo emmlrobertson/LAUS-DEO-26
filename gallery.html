@@ -9,6 +9,176 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ── ALBUM GRID ── */
+.albums-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.album-card {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,.18);
+  background: var(--offwhite);
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+  position: relative;
+}
+.album-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(42,4,16,.12); }
+/* Single cover image per album card */
+.album-cover {
+  width: 100%; height: 220px;
+  position: relative; overflow: hidden;
+}
+.album-cover img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform .4s ease;
+}
+.album-card:hover .album-cover img { transform: scale(1.05); }
+.album-cover .cover-ph {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 56px;
+}
+/* Play/view icon overlay on hover */
+.album-cover::after {
+  content: '▶';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 36px; color: rgba(255,255,255,0.9);
+  background: rgba(0,0,0,0.28);
+  opacity: 0; transition: opacity .25s;
+}
+.album-card:hover .album-cover::after { opacity: 1; }
+.album-info { padding: 18px 20px; }
+.album-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; font-weight: 600; color: var(--crimson2); margin-bottom: 4px;
+}
+.album-count {
+  font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: .18em;
+  color: var(--text3);
+}
+.album-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.3);
+  border-radius: 100px; padding: 4px 12px;
+  font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: .15em; color: var(--gold2);
+}
+
+/* ── LIGHTBOX ── */
+#lightbox {
+  display: none;
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(10,4,0,0.96);
+  flex-direction: column;
+  align-items: center; justify-content: center;
+}
+#lightbox.open { display: flex; }
+
+.lb-header {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 16px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+  z-index: 2;
+}
+.lb-album-name {
+  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .22em;
+  color: rgba(255,255,255,0.75);
+}
+.lb-counter {
+  font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: .15em;
+  color: var(--gold3); margin-left: auto; margin-right: 20px;
+}
+.lb-close {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.lb-close:hover { background: rgba(255,255,255,0.2); }
+
+/* Main image */
+.lb-img-wrap {
+  width: 100%; max-width: 900px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 72px 80px 80px;
+  position: relative;
+}
+.lb-img-wrap img {
+  max-width: 100%; max-height: 75vh;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+  display: block;
+  user-select: none;
+}
+.lb-placeholder {
+  width: 100%; max-width: 600px; height: 55vh;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+}
+
+/* Prev / Next arrows */
+.lb-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 48px; height: 48px; border-radius: 50%;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  color: #fff; font-size: 22px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s; z-index: 2; user-select: none;
+}
+.lb-arrow:hover { background: rgba(255,255,255,0.22); }
+.lb-prev { left: 12px; }
+.lb-next { right: 12px; }
+.lb-arrow:disabled { opacity: .25; cursor: default; }
+
+/* Caption */
+.lb-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px 24px;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  text-align: center;
+}
+.lb-cap-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px; font-style: italic; color: rgba(255,255,255,0.8);
+}
+
+/* Thumbnail strip */
+.lb-thumbs {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 12px 16px 16px;
+  display: flex; gap: 8px; justify-content: center; flex-wrap: nowrap;
+  overflow-x: auto; scrollbar-width: none;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+}
+.lb-thumbs::-webkit-scrollbar { display: none; }
+.lb-thumb {
+  width: 60px; height: 44px; flex-shrink: 0;
+  border-radius: 6px; overflow: hidden; cursor: pointer;
+  border: 2px solid transparent; transition: border-color .2s, opacity .2s;
+  opacity: 0.55;
+}
+.lb-thumb img { width:100%; height:100%; object-fit:cover; display:block; }
+.lb-thumb .th-ph {
+  width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+  font-size:16px;
+}
+.lb-thumb.active { border-color: var(--gold); opacity: 1; }
+.lb-thumb:hover { opacity: 0.85; }
+
+@media(max-width:600px){
+  .lb-img-wrap { padding: 64px 48px 100px; }
+  .lb-arrow { width:38px; height:38px; font-size:18px; }
+  .lb-prev { left:4px; } .lb-next { right:4px; }
+  .lb-thumbs { padding: 8px 10px 70px; }
+}
+</style>
 </head>
 <body class="page-body">
 
@@ -42,57 +212,115 @@
 
 <section class="section" style="background:var(--offwhite)">
   <div class="section-inner">
-
-    <!-- Upload prompt -->
-    <div style="background:rgba(201,168,76,.08);border:1px dashed rgba(201,168,76,.4);border-radius:16px;padding:20px 28px;margin-bottom:48px;display:flex;align-items:center;gap:16px" class="reveal">
-      <div style="font-size:28px;flex-shrink:0">📸</div>
-      <div>
-        <div style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.15em;color:var(--gold2);margin-bottom:4px">PHOTO GALLERY</div>
-        <div style="font-size:14px;color:var(--text2)">Replace the placeholder tiles below with your choir's real photos. Each <code>.gal-ph</code> div can be swapped for an <code>&lt;img&gt;</code> tag.</div>
-      </div>
+    <div class="section-header reveal">
+      <div class="pill">PHOTO ALBUMS</div>
     </div>
 
-    <div class="gallery-masonry" id="galleryMasonry">
-      <div class="gal-item reveal">
-        <div class="gal-ph" style="height:300px;background:linear-gradient(135deg,#3D0718,#6B1229)">🎶</div>
-        <div class="gal-overlay"><div class="gal-cap">Inaugural Concert · 2013</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-1">
-        <div class="gal-ph" style="height:220px;background:linear-gradient(135deg,#A8872E,#7A1030)">🎵</div>
-        <div class="gal-overlay"><div class="gal-cap">National Competition · 2016</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-2">
-        <div class="gal-ph" style="height:260px;background:linear-gradient(135deg,#5C0B24,#C9A84C)">🎤</div>
-        <div class="gal-overlay"><div class="gal-cap">Full Choir Rehearsal</div></div>
-      </div>
-      <div class="gal-item reveal">
-        <div class="gal-ph" style="height:240px;background:linear-gradient(135deg,#7A1030,#3D0718)">🎼</div>
-        <div class="gal-overlay"><div class="gal-cap">10th Anniversary · 2019</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-1">
-        <div class="gal-ph" style="height:300px;background:linear-gradient(135deg,#E8CC7A,#A8872E)">✦</div>
-        <div class="gal-overlay"><div class="gal-cap">Alumni Reunion · 2022</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-2">
-        <div class="gal-ph" style="height:200px;background:linear-gradient(135deg,#2A0410,#A8872E)">🎹</div>
-        <div class="gal-overlay"><div class="gal-cap">ATCAC Performance</div></div>
-      </div>
-      <div class="gal-item reveal">
-        <div class="gal-ph" style="height:260px;background:linear-gradient(135deg,#25004D,#D4AF37)">🎭</div>
-        <div class="gal-overlay"><div class="gal-cap">Special Performance · 2020</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-1">
-        <div class="gal-ph" style="height:220px;background:linear-gradient(135deg,#6B1229,#E6C55A)">🎺</div>
-        <div class="gal-overlay"><div class="gal-cap">Choir Leadership · 2023</div></div>
-      </div>
-      <div class="gal-item reveal reveal-delay-2">
-        <div class="gal-ph" style="height:280px;background:linear-gradient(135deg,#A8872E,#5A00B5)">🎗️</div>
-        <div class="gal-overlay"><div class="gal-cap">Award Ceremony</div></div>
-      </div>
-    </div>
+    <div class="albums-grid">
 
+      <!-- ── ALBUM 1: Inaugural Concert 2013 ── -->
+      <!-- Replace cover-ph with: <img src="YOUR_CLOUDINARY_URL" alt="Inaugural Concert"> -->
+      <div class="album-card reveal" onclick="openAlbum('inaugural')">
+      <div class="album-cover">
+          <img src="https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586968/5985702445499661893_fpuoyt.jpg"
+         alt="Laus Deo Concert">
+      </div>
+        <div class="album-badge">2013</div>
+        <div class="album-info">
+          <div class="album-title">Laus Deo Concert ' 23</div>
+          <div class="album-count"> PHOTOS </div>
+        </div>
+      </div>
+
+      <!-- ── ALBUM 2: National Competition 2016 ── -->
+      <div class="album-card reveal reveal-delay-1" onclick="openAlbum('national')">
+        <div class="album-cover">
+          <div class="cover-ph" style="background:linear-gradient(135deg,#A8872E,#7A1030)"></div>
+        </div>
+        <div class="album-badge">2016</div>
+        <div class="album-info">
+          <div class="album-title">Ministrations</div>
+          <div class="album-count">4 PHOTOS </div>
+        </div>
+      </div>
+
+      <!-- ── ALBUM 3: Full Choir Rehearsal ── -->
+      <div class="album-card reveal reveal-delay-2" onclick="openAlbum('rehearsal')">
+        <div class="album-cover">
+          <div class="cover-ph" style="background:linear-gradient(135deg,#5C0B24,#C9A84C)">🎹</div>
+        </div>
+        <div class="album-badge">REHEARSAL</div>
+        <div class="album-info">
+          <div class="album-title">Full Choir Rehearsal</div>
+          <div class="album-count"> PHOTOS </div>
+        </div>
+      </div>
+
+      <!-- ── ALBUM 4: 10th Anniversary 2019 ── -->
+      <div class="album-card reveal" onclick="openAlbum('tenth')">
+        <div class="album-collage">
+          <div class="col-ph" style="background:linear-gradient(135deg,#7A1030,#3D0718)">🎭</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#3D0718,#7A1030)">🎵</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#6B1229,#A8872E)">✦</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#A8872E,#6B1229)">🎤</div>
+        </div>
+        <div class="album-badge">2019</div>
+        <div class="album-info">
+          <div class="album-title">10th Anniversary Concert</div>
+          <div class="album-count">4 PHOTOS · CLICK TO VIEW</div>
+        </div>
+      </div>
+
+      <!-- ── ALBUM 5: Alumni Reunion 2022 ── -->
+      <div class="album-card reveal reveal-delay-1" onclick="openAlbum('alumni')">
+        <div class="album-collage">
+          <div class="col-ph" style="background:linear-gradient(135deg,#E8CC7A,#A8872E)">👥</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#A8872E,#E8CC7A)">🎵</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#C9A84C,#7A1030)">✦</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#7A1030,#C9A84C)">🎶</div>
+        </div>
+        <div class="album-badge">2022</div>
+        <div class="album-info">
+          <div class="album-title">Alumni Reunion</div>
+          <div class="album-count">4 PHOTOS · CLICK TO VIEW</div>
+        </div>
+      </div>
+
+      <!-- ── ALBUM 6: ATCAC Performance ── -->
+      <div class="album-card reveal reveal-delay-2" onclick="openAlbum('atcac')">
+        <div class="album-collage">
+          <div class="col-ph" style="background:linear-gradient(135deg,#2A0410,#A8872E)">⛪</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#A8872E,#2A0410)">🎵</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#5A00B5,#D4AF37)">🎼</div>
+          <div class="col-ph" style="background:linear-gradient(135deg,#D4AF37,#5A00B5)">🎭</div>
+        </div>
+        <div class="album-badge">ATCAC</div>
+        <div class="album-info">
+          <div class="album-title">ATCAC Performance</div>
+          <div class="album-count">4 PHOTOS · CLICK TO VIEW</div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
+
+<!-- ══════════════ LIGHTBOX ══════════════ -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <div class="lb-header">
+    <div class="lb-album-name" id="lb-album-name"></div>
+    <div class="lb-counter" id="lb-counter"></div>
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+  </div>
+
+  <div class="lb-img-wrap">
+    <button class="lb-arrow lb-prev" id="lb-prev" onclick="navigate(-1)" aria-label="Previous">‹</button>
+    <div id="lb-main-img"></div>
+    <button class="lb-arrow lb-next" id="lb-next" onclick="navigate(1)" aria-label="Next">›</button>
+  </div>
+
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+</div>
 
 <footer>
   <div class="footer-grid">
@@ -125,6 +353,7 @@
 </footer>
 
 <script>
+// ── NAV ──
 const navToggle=document.getElementById('nav-toggle'),navMenu=document.getElementById('nav-menu'),navEl=document.getElementById('nav');
 navToggle.addEventListener('click',()=>{const o=navEl.classList.toggle('open');navToggle.setAttribute('aria-expanded',o);});
 navMenu.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{navEl.classList.remove('open');navToggle.setAttribute('aria-expanded','false');}));
@@ -132,6 +361,163 @@ const page=location.pathname.split('/').pop()||'index.html';
 navMenu.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')===page)a.classList.add('active');});
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ══════════════════════════════════════════════════════
+// ALBUMS DATA
+// To add your real photos:
+//   1. Upload to Cloudinary
+//   2. Replace the "src" placeholder URLs with your Cloudinary URLs
+//   3. Update "count" to match how many photos you have
+//   4. Add as many { src, caption } objects as you need
+// ══════════════════════════════════════════════════════
+const ALBUMS = {
+  inaugural: {
+    name: 'Inaugural Concert · 2013',
+    photos: [
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586968/5985702445499661893_fpuoyt.jpg', caption: 'Full Choir for Laus Deo ', icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586952/5985702445499661877_dg27lg.jpg', caption: 'The choir takes the stage',icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586926/5985702445499661876_om1sre.jpg', caption: 'Rev . Prof Grace Nkansah ',icon: '🎤' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586810/5985702445499661855_blquex.jpg', caption: 'Alfredo the Organist',icon: '🎼' },
+      // Add more: { src: 'https://res.cloudinary.com/YOUR/image/upload/q_auto,f_auto/photo.jpg', caption: 'Your caption' },
+    ]
+  },
+  national: {
+    name: 'National Competition · 2016',
+    photos: [
+      { src: null, caption: 'Arriving at the venue',   icon: '🏆' },
+      { src: null, caption: 'Warm-up backstage',        icon: '🎵' },
+      { src: null, caption: 'On stage performance',     icon: '🎤' },
+      { src: null, caption: 'Receiving the award',      icon: '✦'  },
+    ]
+  },
+  rehearsal: {
+    name: 'Full Choir Rehearsal',
+    photos: [
+      { src: null, caption: 'Section rehearsal',        icon: '🎹' },
+      { src: null, caption: 'Director leading warmups', icon: '🎼' },
+      { src: null, caption: 'Soprano section',          icon: '🎵' },
+      { src: null, caption: 'Full run-through',         icon: '🎶' },
+    ]
+  },
+  tenth: {
+    name: '10th Anniversary Concert · 2019',
+    photos: [
+      { src: null, caption: 'Alumni return to the stage', icon: '🎭' },
+      { src: null, caption: 'A decade of music',          icon: '🎵' },
+      { src: null, caption: 'Alumni and current members', icon: '✦'  },
+      { src: null, caption: 'Emotional finale',           icon: '🎤' },
+    ]
+  },
+  alumni: {
+    name: 'Alumni Reunion · 2022',
+    photos: [
+      { src: null, caption: 'Old friends reunite',        icon: '👥' },
+      { src: null, caption: 'Fellowship and laughter',    icon: '🎵' },
+      { src: null, caption: 'Group photo',                icon: '✦'  },
+      { src: null, caption: 'Singing together again',     icon: '🎶' },
+    ]
+  },
+  atcac: {
+    name: 'ATCAC Performance',
+    photos: [
+      { src: null, caption: 'Inside the church',          icon: '⛪' },
+      { src: null, caption: 'Processional entry',         icon: '🎵' },
+      { src: null, caption: 'Worship in song',            icon: '🎼' },
+      { src: null, caption: 'The congregation',           icon: '🎭' },
+    ]
+  }
+};
+
+// ── LIGHTBOX STATE ──
+let currentAlbum = null;
+let currentIndex  = 0;
+
+function openAlbum(albumKey) {
+  currentAlbum = albumKey;
+  currentIndex  = 0;
+  renderLightbox();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navigate(dir) {
+  const album = ALBUMS[currentAlbum];
+  currentIndex = (currentIndex + dir + album.photos.length) % album.photos.length;
+  renderLightbox();
+}
+
+function goToPhoto(i) {
+  currentIndex = i;
+  renderLightbox();
+}
+
+function renderLightbox() {
+  const album  = ALBUMS[currentAlbum];
+  const photo  = album.photos[currentIndex];
+  const total  = album.photos.length;
+
+  document.getElementById('lb-album-name').textContent = album.name;
+  document.getElementById('lb-counter').textContent = `${currentIndex + 1} / ${total}`;
+
+  // Main image
+  const wrap = document.getElementById('lb-main-img');
+  if (photo.src) {
+    wrap.innerHTML = `<img src="${photo.src}" alt="${photo.caption}" style="max-width:100%;max-height:75vh;object-fit:contain;border-radius:10px;box-shadow:0 24px 80px rgba(0,0,0,0.6);display:block">
+      <div style="text-align:center;margin-top:14px;font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(255,255,255,0.75)">${photo.caption}</div>`;
+  } else {
+    wrap.innerHTML = `<div style="width:min(560px,90vw);height:55vh;border-radius:10px;background:linear-gradient(135deg,#3D0718,#6B1229);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px">
+        <div style="font-size:72px">${photo.icon}</div>
+        <div style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.2em;color:rgba(255,255,255,0.4)">PHOTO COMING SOON</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.6)">${photo.caption}</div>
+      </div>`;
+  }
+
+  // Arrows
+  document.getElementById('lb-prev').disabled = false;
+  document.getElementById('lb-next').disabled = false;
+
+  // Thumbnails
+  const thumbsEl = document.getElementById('lb-thumbs');
+  thumbsEl.innerHTML = album.photos.map((p, i) => `
+    <div class="lb-thumb ${i === currentIndex ? 'active' : ''}" onclick="goToPhoto(${i})">
+      ${p.src
+        ? `<img src="${p.src.replace('/upload/','/upload/w_120,h_88,c_fill/')}" alt="">`
+        : `<div class="th-ph" style="background:linear-gradient(135deg,#3D0718,#6B1229)">${p.icon}</div>`
+      }
+    </div>`).join('');
+
+  // Scroll active thumb into view
+  setTimeout(() => {
+    const active = thumbsEl.querySelector('.lb-thumb.active');
+    if (active) active.scrollIntoView({ inline: 'center', behavior: 'smooth' });
+  }, 50);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') navigate(1);
+  if (e.key === 'ArrowLeft')  navigate(-1);
+  if (e.key === 'Escape')     closeLightbox();
+});
+
+// Close on backdrop click
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// Touch swipe support
+let touchStartX = 0;
+document.getElementById('lightbox').addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; });
+document.getElementById('lightbox').addEventListener('touchend',   e => {
+  const diff = touchStartX - e.changedTouches[0].clientX;
+  if (Math.abs(diff) > 50) navigate(diff > 0 ? 1 : -1);
+});
 </script>
 </body>
 </html>

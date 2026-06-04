@@ -43,6 +43,7 @@
 }
 /* Play/view icon overlay on hover */
 .album-cover::after {
+  content: '▶';
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
   font-size: 36px; color: rgba(255,255,255,0.9);
@@ -217,40 +218,39 @@
 
     <div class="albums-grid">
 
-      <!-- ── ALBUM 1: Inaugural Concert 2013 ── -->
-      <!-- Replace cover-ph with: <img src="YOUR_CLOUDINARY_URL" alt="Inaugural Concert"> -->
+      <!-- ── ALBUM 1: LAUS DEO 23 ── -->
       <div class="album-card reveal" onclick="openAlbum('inaugural')">
       <div class="album-cover">
           <img src="https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586968/5985702445499661893_fpuoyt.jpg"
-         alt="Laus Deo Concert">
+         alt="Laus Deo Concert 23">
       </div>
-        <div class="album-badge">2013</div>
+        <div class="album-badge">2023</div>
         <div class="album-info">
           <div class="album-title">Laus Deo Concert ' 23</div>
           <div class="album-count"> PHOTOS </div>
         </div>
       </div>
 
-      <!-- ── ALBUM 2: National Competition 2016 ── -->
+      <!--  ALBUM 2: LAUS DEO 2024  -->
       <div class="album-card reveal reveal-delay-1" onclick="openAlbum('national')">
         <div class="album-cover">
-          <div class="cover-ph" style="background:linear-gradient(135deg,#A8872E,#7A1030)"></div>
+          <img src="https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609360/5873196507325383054_bahx0k.jpg" alt="Laus Deo 24">
         </div>
-        <div class="album-badge">2016</div>
+        <div class="album-badge">2024</div>
         <div class="album-info">
-          <div class="album-title">Ministrations</div>
-          <div class="album-count">4 PHOTOS </div>
+          <div class="album-title">Laus Deo 24</div>
+          <div class="album-count"> PHOTOS </div>
         </div>
       </div>
 
-      <!-- ── ALBUM 3: Full Choir Rehearsal ── -->
+      <!-- ── ALBUM 3: MINISTRATIONS ── -->
       <div class="album-card reveal reveal-delay-2" onclick="openAlbum('rehearsal')">
         <div class="album-cover">
-          <div class="cover-ph" style="background:linear-gradient(135deg,#5C0B24,#C9A84C)">🎹</div>
+           <img src ="https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610694/IMG_6244_koea92.jpg" alt="">
         </div>
-        <div class="album-badge">REHEARSAL</div>
+        <div class="album-badge">MINISTRATIONS</div>
         <div class="album-info">
-          <div class="album-title">Full Choir Rehearsal</div>
+          <div class="album-title">Ministrations</div>
           <div class="album-count"> PHOTOS </div>
         </div>
       </div>
@@ -259,9 +259,7 @@
       <div class="album-card reveal" onclick="openAlbum('tenth')">
         <div class="album-collage">
           <div class="col-ph" style="background:linear-gradient(135deg,#7A1030,#3D0718)">🎭</div>
-          <div class="col-ph" style="background:linear-gradient(135deg,#3D0718,#7A1030)">🎵</div>
-          <div class="col-ph" style="background:linear-gradient(135deg,#6B1229,#A8872E)">✦</div>
-          <div class="col-ph" style="background:linear-gradient(135deg,#A8872E,#6B1229)">🎤</div>
+          
         </div>
         <div class="album-badge">2019</div>
         <div class="album-info">
@@ -341,7 +339,7 @@
         <div class="ir"><span class="k">Time</span><span class="v">6:00 PM – 8:00 PM</span></div>
         <div class="ir"><span class="k">Venue</span><span class="v">ATCAC – KNUST, Kumasi</span></div>
         <div class="ir"><span class="k">Admission</span><span class="v">Free Entry</span></div>
-        <a href="index.html" class="admission-btn">✦ FREE ADMISSION · ALL WELCOME</a>
+        <a href="index.html" class="admission-btn">✦ ALL ARE WELCOME</a>
       </div>
     </div>
   </div>
@@ -361,41 +359,36 @@ navMenu.querySelectorAll('a').forEach(a=>{if(a.getAttribute('href')===page)a.cla
 const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// ══════════════════════════════════════════════════════
-// ALBUMS DATA
-// To add your real photos:
-//   1. Upload to Cloudinary
-//   2. Replace the "src" placeholder URLs with your Cloudinary URLs
-//   3. Update "count" to match how many photos you have
-//   4. Add as many { src, caption } objects as you need
-// ══════════════════════════════════════════════════════
+
 const ALBUMS = {
   inaugural: {
     name: 'Inaugural Concert · 2013',
     photos: [
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586968/5985702445499661893_fpuoyt.jpg', caption: 'Full Choir for Laus Deo ', icon: '🎶' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586952/5985702445499661877_dg27lg.jpg', caption: 'The choir takes the stage',icon: '🎵' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586926/5985702445499661876_om1sre.jpg', caption: 'Rev . Prof Grace Nkansah ',icon: '🎤' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586810/5985702445499661855_blquex.jpg', caption: 'Alfredo the Organist',icon: '🎼' },
-      // Add more: { src: 'https://res.cloudinary.com/YOUR/image/upload/q_auto,f_auto/photo.jpg', caption: 'Your caption' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586968/5985702445499661893_fpuoyt.jpg', caption: 'Full Choir for Laus Deo ', icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586952/5985702445499661877_dg27lg.jpg', caption: 'The choir takes the stage',icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586926/5985702445499661876_om1sre.jpg', caption: 'Rev . Prof Grace Nkansah ',icon: '🎤' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586810/5985702445499661855_blquex.jpg', caption: 'Alfredo the Organist',icon: '🎼' },
     ]
   },
   national: {
     name: 'National Competition · 2016',
     photos: [
-      { src: null, caption: 'Arriving at the venue',   icon: '🏆' },
-      { src: null, caption: 'Warm-up backstage',        icon: '🎵' },
-      { src: null, caption: 'On stage performance',     icon: '🎤' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609360/5873196507325383054_bahx0k.jpg', caption: 'Arriving at the venue',   icon: '🏆' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609338/5873196507325383048_yjcpqt.jpg', caption: 'Warm-up backstage',        icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609328/5873196507325383044_wsnwne.jpg', caption: 'On stage performance',     icon: '🎤' },
       { src: null, caption: 'Receiving the award',      icon: '✦'  },
     ]
   },
   rehearsal: {
     name: 'Full Choir Rehearsal',
     photos: [
-      { src: null, caption: 'Section rehearsal',        icon: '🎹' },
-      { src: null, caption: 'Director leading warmups', icon: '🎼' },
-      { src: null, caption: 'Soprano section',          icon: '🎵' },
-      { src: null, caption: 'Full run-through',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610694/IMG_6244_koea92.jpg', caption: 'Section rehearsal',        icon: '🎹' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610666/IMG_6242_ca9hzr.jpg', caption: 'Director leading warmups', icon: '🎼' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610652/IMG_6240_tpvsx7.jpg', caption: 'Soprano section',          icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610635/IMG_6236_cbib9g.jpg', caption: 'Full run-through',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610546/IMG_6232_wdyz9y.jpg', caption: 'Full run-through',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610790/IMG_6251_kne3eg.jpg', caption: 'Full run-through',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610774/IMG_6248_ejpbgf.jpg', caption: 'Full run-through',         icon: '🎶' },
     ]
   },
   tenth: {
@@ -427,7 +420,6 @@ const ALBUMS = {
   }
 };
 
-// ── LIGHTBOX STATE ──
 let currentAlbum = null;
 let currentIndex  = 0;
 

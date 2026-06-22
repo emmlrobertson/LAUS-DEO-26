@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Gallery — LAUS DEO '26</title>
-<link rel="icon" href="NuasChoirLogo.png">
+<link rel="icon" href="Unionlogo.png">
 <link rel="stylesheet" href="lausdeo.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -184,7 +184,7 @@
 
 <nav id="nav">
   <a href="index.html" class="nav-brand">
-    <img src="NuasChoirLogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
+    <img src="Unionlogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
     <div class="nav-brand-text">
       <div class="nav-brand-name">NUAS CHOIR · KNUST</div>
       <div class="nav-brand-sub">15th Anniversary Celebration</div>
@@ -263,7 +263,7 @@
         </div>
         <div class="album-badge">2021</div>
         <div class="album-info">
-          <div class="album-title">10th Anniversary Concert</div>
+          <div class="album-title">LAUS DEO </div>
           <div class="album-count">4 PHOTOS · CLICK TO VIEW</div>
         </div>
       </div>
@@ -307,17 +307,32 @@
   <div class="footer-grid">
     <div>
       <div class="footer-ld">LAUS DEO</div>
-      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2013</div>
+      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2011</div>
       <p class="footer-blurb">Celebrating fifteen years of musical excellence, spiritual devotion, community, and harmony.</p>
       <p class="footer-love">With Heart ♥ ...... And Voice</p>
     </div>
     <div>
       <div class="footer-col-title">GET IN TOUCH</div>
-      <div class="footer-ci"><div class="fci-icon">♪</div><div><div class="fci-lbl">TIKTOK</div><div class="fci-val"><a href="https://www.tiktok.com/@melodiousnuaschoi" target="_blank" rel="noopener noreferrer" class="footer-link">@melodiousnuaschoi</a></div></div></div>
-      <div class="footer-ci"><div class="fci-icon">▶</div><div><div class="fci-lbl">YOUTUBE</div><div class="fci-val"><a href="https://www.youtube.com/@melodiousnuaschoirknust4980" target="_blank" rel="noopener noreferrer" class="footer-link">@melodiousnuaschoirknust4980</a></div></div></div>
-      <div class="footer-ci"><div class="fci-icon">📍</div><div><div class="fci-lbl">LOCATION</div><div class="fci-val">Arch.Bishop Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div></div></div>
-    </div>
-    <div>
+
+<div class="footer-ci">
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="https://www.tiktok.com/@melodiousnuaschoi" target="_blank" rel="noopener noreferrer">
+      <img src="tiktok.png" style="width:28px; height:28px; object-fit:contain; border-radius:8px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+    </a>
+    <a href="https://www.youtube.com/@melodiousnuaschoirknust4980" target="_blank" rel="noopener noreferrer">
+      <img src="youtube.png" style="width:28px; height:28px; object-fit:contain; border-radius:8px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+    </a>
+  </div>
+</div>
+
+<div class="footer-ci" style="margin-top:12px;">
+  <div class="fci-icon">📍</div>
+  <div>
+    <div class="fci-lbl">LOCATION</div>
+    <div class="fci-val">Arch.Bishop Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div>
+  </div>
+</div>
+
       <div class="footer-col-title">CONCERT INFORMATION</div>
       <div class="info-box">
         <div class="ir"><span class="k">Date</span><span class="v">Saturday, 27th June 2026</span></div>
@@ -347,47 +362,47 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 const ALBUMS = {
   inaugural: {
-    name: 'Inaugural Concert · 2013',
+    name: 'LAUS DEO 23 ',
     photos: [
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586968/5985702445499661893_fpuoyt.jpg', caption: 'Full Choir for Laus Deo ', icon: '🎶' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586952/5985702445499661877_dg27lg.jpg', caption: 'The choir takes the stage',icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586968/5985702445499661893_fpuoyt.jpg', caption: 'Memories ', icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586952/5985702445499661877_dg27lg.jpg', caption: 'Memories',icon: '🎵' },
       { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586926/5985702445499661876_om1sre.jpg', caption: 'Rev . Prof Grace Nkansah ',icon: '🎤' },
       { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780586810/5985702445499661855_blquex.jpg', caption: 'Alfredo the Organist',icon: '🎼' },
     ]
   },
   national: {
-    name: 'National Competition · 2016',
+    name: 'LAUS DEO 24',
     photos: [
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609360/5873196507325383054_bahx0k.jpg', caption: 'Arriving at the venue',   icon: '🏆' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609338/5873196507325383048_yjcpqt.jpg', caption: 'Warm-up backstage',        icon: '🎵' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609328/5873196507325383044_wsnwne.jpg', caption: 'On stage performance',     icon: '🎤' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586698/5985702445499661838_bmiwgd.jpg', caption: '',      icon: '✦'  },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609360/5873196507325383054_bahx0k.jpg', caption: 'Memories',   icon: '🏆' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609338/5873196507325383048_yjcpqt.jpg', caption: 'Memories',        icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780609328/5873196507325383044_wsnwne.jpg', caption: 'Memories',     icon: '🎤' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780586698/5985702445499661838_bmiwgd.jpg', caption: 'Memories',      icon: '✦'  },
     ]
   },
   rehearsal: {
-    name: 'Full Choir Rehearsal',
+    name: 'MINISTRATIONS',
     photos: [
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610694/IMG_6244_koea92.jpg', caption: 'Section rehearsal',        icon: '🎹' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610666/IMG_6242_ca9hzr.jpg', caption: 'Director leading warmups', icon: '🎼' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610652/IMG_6240_tpvsx7.jpg', caption: 'Soprano section',          icon: '🎵' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610635/IMG_6236_cbib9g.jpg', caption: 'Full run-through',         icon: '🎶' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610546/IMG_6232_wdyz9y.jpg', caption: 'Full run-through',         icon: '🎶' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610790/IMG_6251_kne3eg.jpg', caption: 'Full run-through',         icon: '🎶' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610774/IMG_6248_ejpbgf.jpg', caption: 'Full run-through',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610694/IMG_6244_koea92.jpg', caption: ' Memories',        icon: '🎹' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto,f_auto/v1780610666/IMG_6242_ca9hzr.jpg', caption: 'Memories', icon: '🎼' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610652/IMG_6240_tpvsx7.jpg', caption: ' Memories',          icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610635/IMG_6236_cbib9g.jpg', caption: 'Memories',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610546/IMG_6232_wdyz9y.jpg', caption: 'Memories',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610790/IMG_6251_kne3eg.jpg', caption: 'Memories',         icon: '🎶' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1780610774/IMG_6248_ejpbgf.jpg', caption: 'Memories',         icon: '🎶' },
     ]
   },
   tenth: {
-    name: '10th Anniversary Concert · 2019',
+    name: 'LAUS DEO',
     photos: [
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273116/WhatsApp_Image_2026-06-09_at_15.04.36_1_lhixby.jpg', caption: 'Alumni return to the stage', icon: '🎭' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273126/WhatsApp_Image_2026-06-09_at_15.04.37_2_gqdjke.jpg', caption: 'A decade of music',          icon: '🎵' },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273141/WhatsApp_Image_2026-06-09_at_15.04.36_3_fgjew4.jpg', caption: 'Alumni and current members', icon: '✦'  },
-      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273156/WhatsApp_Image_2026-06-09_at_15.04.37_vhaszz.jpg', caption: 'Emotional finale',           icon: '🎤' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273116/WhatsApp_Image_2026-06-09_at_15.04.36_1_lhixby.jpg', caption: 'Memories', icon: '🎭' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273126/WhatsApp_Image_2026-06-09_at_15.04.37_2_gqdjke.jpg', caption: 'Memories',          icon: '🎵' },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273141/WhatsApp_Image_2026-06-09_at_15.04.36_3_fgjew4.jpg', caption: 'Memories', icon: '✦'  },
+      { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781273156/WhatsApp_Image_2026-06-09_at_15.04.37_vhaszz.jpg', caption: 'Memories',           icon: '🎤' },
     ]
   },
 
   atcac: {
-    name: 'ATCAC Performance',
+    name: 'RANDOM SUNDAY PICTURES',
     photos: [
       { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781535056/WhatsApp_Image_2026-06-15_at_14.45.07_pnigrc.jpg', caption: 'Choristers',          icon: '⛪' },
       { src: 'https://res.cloudinary.com/doxkrnkkz/image/upload/q_auto/f_auto/v1781535073/WhatsApp_Image_2026-06-15_at_14.45.12_rryze9.jpg', caption: 'Choristers',         icon: '🎵' },

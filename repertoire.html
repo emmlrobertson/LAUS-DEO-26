@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>Repertoire — LAUS DEO '26</title>
-<link rel="icon" href="NuasChoirLogo.png">
+<link rel="icon" href="Unionlogo.png">
 <link rel="stylesheet" href="lausdeo.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 
 <nav id="nav">
   <a href="index.html" class="nav-brand">
-    <img src="NuasChoirLogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
+    <img src="Unionlogo.png" alt="NUAS Choir Logo" class="nav-logo" style="border:1.8px solid rgba(239,175,0,0.5);border-radius:50%">
     <div class="nav-brand-text">
       <div class="nav-brand-name">NUAS CHOIR · KNUST</div>
       <div class="nav-brand-sub">15th Anniversary Celebration</div>
@@ -45,96 +45,55 @@
     <div class="songs-filter reveal">
       <button class="filter-btn active" onclick="filterSongs('all',this)">ALL</button>
       <button class="filter-btn" onclick="filterSongs('classical',this)">CLASSICAL</button>
-      <button class="filter-btn" onclick="filterSongs('contemporary',this)">CONTEMPORARY</button>
-      <button class="filter-btn" onclick="filterSongs('sacred',this)">SACRED</button>
-      <button class="filter-btn" onclick="filterSongs('musical-theater',this)">MUSICAL THEATER</button>
+      <button class="filter-btn" onclick="filterSongs('anthems',this)">ANTHEMS</button>
+      <button class="filter-btn" onclick="filterSongs('hymns',this)">HYMNS</button>
+      <button class="filter-btn" onclick="filterSongs('psalm',this)">PSALM</button>
     </div>
 
     <div class="songs-grid" id="songsGrid">
 
       <div class="song-card classical">
         <div class="song-icon c">♩</div>
-        <div class="song-title">O Fortuna</div>
-        <div class="song-composer">Carl Orff — Carmina Burana</div>
+        <div class="song-title">I WILL GIVE THANKS UNTO THEE</div>
+        <div class="song-composer">Gioacchino Rossini</div>
         <div class="song-meta">
-          <div class="smrow"><span class="lbl">Key</span><span class="val">D minor</span></div>
-          <div class="smrow"><span class="lbl">Duration</span><span class="val">2:45</span></div>
-        </div>
-        <div class="song-tags">
-          <span class="stag stag-c">CLASSICAL</span>
-          <span class="stag stag-e">Full Choir</span>
+          <div class="smrow"><span class="lbl">Key</span><span class="val">E flat</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">4:27</span></div>
         </div>
       </div>
 
-      <div class="song-card contemporary">
+      <div class="song-card hymn">
         <div class="song-icon g">♪</div>
-        <div class="song-title">The Blessing</div>
-        <div class="song-composer">Kari Jobe &amp; Cody Carnes</div>
+        <div class="song-title">NOW THANK WE ALL OUR GOD</div>
+        <div class="song-composer">J.CRUGER(1598-1662)</div>
         <div class="song-meta">
           <div class="smrow"><span class="lbl">Key</span><span class="val">C major</span></div>
           <div class="smrow"><span class="lbl">Duration</span><span class="val">4:20</span></div>
         </div>
-        <div class="song-tags">
-          <span class="stag stag-g">CONTEMPORARY</span>
-          <span class="stag stag-e">Senior Ensemble</span>
-        </div>
       </div>
 
-      <div class="song-card sacred">
+      <div class="song-card hymn">
         <div class="song-icon c">♩</div>
-        <div class="song-title">Panis Angelicus</div>
-        <div class="song-composer">César Franck</div>
+        <div class="song-title">OUR SACRIFICE OF PRAISE</div>
+        <div class="song-composer">James Varick Amarh</div>
         <div class="song-meta">
-          <div class="smrow"><span class="lbl">Key</span><span class="val">D major</span></div>
-          <div class="smrow"><span class="lbl">Duration</span><span class="val">3:40</span></div>
-        </div>
-        <div class="song-tags">
-          <span class="stag stag-c">SACRED</span>
-          <span class="stag stag-e">Senior Ensemble</span>
+          <div class="smrow"><span class="lbl">Key</span><span class="val">F</span></div>
+          <div class="smrow"><span class="lbl">Duration</span><span class="val">4:17</span></div>
         </div>
       </div>
 
-      <div class="song-card musical-theater">
+      <div class="song-card psalm">
         <div class="song-icon g">♪</div>
-        <div class="song-title">Seasons of Love</div>
-        <div class="song-composer">Jonathan Larson — RENT</div>
-        <div class="song-meta">
-          <div class="smrow"><span class="lbl">Key</span><span class="val">B♭ major</span></div>
-          <div class="smrow"><span class="lbl">Duration</span><span class="val">5:15</span></div>
-        </div>
+        <div class="song-title">Psalm 122</div>
+        <div class="song-composer">KING DAVID</div>
         <div class="song-tags">
-          <span class="stag stag-g">MUSICAL THEATER</span>
-          <span class="stag stag-e">Full Choir &amp; Alumni</span>
-        </div>
-      </div>
-
-      <div class="song-card classical">
-        <div class="song-icon c">♩</div>
-        <div class="song-title">Hallelujah Chorus</div>
-        <div class="song-composer">G.F. Handel — Messiah</div>
-        <div class="song-meta">
-          <div class="smrow"><span class="lbl">Key</span><span class="val">D major</span></div>
-          <div class="smrow"><span class="lbl">Duration</span><span class="val">4:00</span></div>
-        </div>
-        <div class="song-tags">
-          <span class="stag stag-c">CLASSICAL</span>
+          <span class="stag stag-g">CHANT</span>
           <span class="stag stag-e">Full Choir</span>
         </div>
       </div>
 
-      <div class="song-card contemporary">
-        <div class="song-icon g">♪</div>
-        <div class="song-title">Way Maker</div>
-        <div class="song-composer">Sinach</div>
-        <div class="song-meta">
-          <div class="smrow"><span class="lbl">Key</span><span class="val">G major</span></div>
-          <div class="smrow"><span class="lbl">Duration</span><span class="val">6:00</span></div>
-        </div>
-        <div class="song-tags">
-          <span class="stag stag-g">CONTEMPORARY</span>
-          <span class="stag stag-e">Full Choir</span>
-        </div>
-      </div>
+    
+    
 
     </div>
   </div>
@@ -144,17 +103,32 @@
   <div class="footer-grid">
     <div>
       <div class="footer-ld">LAUS DEO</div>
-      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2013</div>
+      <div class="footer-choir-name">NUAS CHOIR · KNUST · EST. 2011</div>
       <p class="footer-blurb">Celebrating fifteen years of musical excellence, spiritual devotion, community, and harmony.</p>
       <p class="footer-love">With Heart ♥ ...... And Voice</p>
     </div>
     <div>
       <div class="footer-col-title">GET IN TOUCH</div>
-      <div class="footer-ci"><div class="fci-icon">♪</div><div><div class="fci-lbl">TIKTOK</div><div class="fci-val"><a href="https://www.tiktok.com/@melodiousnuaschoi" target="_blank" rel="noopener noreferrer" class="footer-link">@melodiousnuaschoi</a></div></div></div>
-      <div class="footer-ci"><div class="fci-icon">▶</div><div><div class="fci-lbl">YOUTUBE</div><div class="fci-val"><a href="https://www.youtube.com/@melodiousnuaschoirknust4980" target="_blank" rel="noopener noreferrer" class="footer-link">@melodiousnuaschoirknust4980</a></div></div></div>
-      <div class="footer-ci"><div class="fci-icon">📍</div><div><div class="fci-lbl">LOCATION</div><div class="fci-val">Arch.Bishop Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div></div></div>
-    </div>
-    <div>
+
+<div class="footer-ci">
+  <div style="display:flex; gap:10px; align-items:center;">
+    <a href="https://www.tiktok.com/@melodiousnuaschoi" target="_blank" rel="noopener noreferrer">
+      <img src="tiktok.png" style="width:28px; height:28px; object-fit:contain; border-radius:8px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+    </a>
+    <a href="https://www.youtube.com/@melodiousnuaschoirknust4980" target="_blank" rel="noopener noreferrer">
+      <img src="youtube.png" style="width:28px; height:28px; object-fit:contain; border-radius:8px; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+    </a>
+  </div>
+</div>
+
+<div class="footer-ci" style="margin-top:12px;">
+  <div class="fci-icon">📍</div>
+  <div>
+    <div class="fci-lbl">LOCATION</div>
+    <div class="fci-val">Arch.Bishop Thomas Cranmer Anglican Church<br>KNUST, Kumasi, Ghana</div>
+  </div>
+</div>
+
       <div class="footer-col-title">CONCERT INFORMATION</div>
       <div class="info-box">
         <div class="ir"><span class="k">Date</span><span class="v">Saturday, 27th June 2026</span></div>

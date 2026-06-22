@@ -190,9 +190,9 @@ img{display:block;max-width:100%;height:auto}
 .song-card{background:var(--offwhite);border:1px solid rgba(201,168,76,.15);border-radius:18px;padding:28px;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
 .song-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;opacity:0;transition:opacity .25s}
 .song-card.classical::after{background:linear-gradient(90deg,var(--crimson),var(--crimson2))}
-.song-card.contemporary::after{background:linear-gradient(90deg,var(--gold),var(--gold2))}
-.song-card.sacred::after{background:linear-gradient(90deg,var(--crimson),var(--gold))}
-.song-card.musical-theater::after{background:linear-gradient(90deg,var(--gold),var(--crimson))}
+.song-card.anthems::after{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.song-card.hymns::after{background:linear-gradient(90deg,var(--crimson),var(--gold))}
+.song-card.psalm::after{background:linear-gradient(90deg,var(--gold),var(--crimson))}
 .song-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(42,4,16,.1)}
 .song-card:hover::after{opacity:1}
 .song-icon{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}

@@ -111,6 +111,7 @@ img{display:block;max-width:100%;height:auto}
 
 /* ─── BUTTONS ─────────────────────────────────────── */
 .btn-primary{
+  margin-top: 10px;
   font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.2em;font-weight:600;
   padding:16px 40px;border-radius:6px;
   background:linear-gradient(135deg,var(--gold3) 0%,var(--gold) 50%,var(--gold2) 100%);
@@ -119,6 +120,7 @@ img{display:block;max-width:100%;height:auto}
 }
 .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08);box-shadow:0 8px 32px rgba(201,168,76,.35)}
 .btn-outline{
+  margin-top: 10px;
   font-family:'Cinzel',serif;font-size:10.5px;letter-spacing:.2em;font-weight:500;
   padding:15px 36px;border-radius:6px;
   border:1px solid rgba(201,168,76,.5);
